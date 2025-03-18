@@ -11,18 +11,18 @@ namespace LU1_1._3.Controllers
     [ApiController]
     [Authorize]
     [Route("/[controller]")]
-    public class ChildController : ControllerBase
+    public class PatientController : ControllerBase
     {
-        private readonly ILogger<ChildController> _logger;
+        private readonly ILogger<PatientController> _logger;
 
-        public ChildController(ILogger<ChildController> logger)
+        public PatientController(ILogger<PatientController> logger)
         {
             _logger = logger;
         }
 
         // GET: /Child/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<Child>> GetById(string id)
+        public async Task<ActionResult<Patient>> GetById(string id)
         {
             // Empty method
             return Ok(); // Or whatever is appropriate (null/empty response)
@@ -30,7 +30,7 @@ namespace LU1_1._3.Controllers
 
         // POST: /Child
         [HttpPost]
-        public async Task<ActionResult<Child>> Create([FromBody] Child child)
+        public async Task<ActionResult<Patient>> Create([FromBody] Patient patient)
         {
             // Empty method
             return Ok(); // Or whatever is appropriate (null/empty response)
@@ -38,7 +38,7 @@ namespace LU1_1._3.Controllers
 
         // PUT: /Child/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id, [FromBody] Child child)
+        public async Task<IActionResult> Update(string id, [FromBody] Patient patient)
         {
             // Empty method
             return NoContent(); // Or whatever is appropriate (null/empty response)
