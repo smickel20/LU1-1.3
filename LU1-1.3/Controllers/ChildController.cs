@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using LU1_1._3.Repositories; // This should be where you manage Child data (CRUD logic)
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
