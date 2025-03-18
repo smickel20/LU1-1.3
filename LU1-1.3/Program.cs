@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Security.Claims;
+using LU1_1._3.Repositories;
 using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,7 +21,7 @@ builder.Services.AddAuthorization(options =>
         }));
 });
 
-string connStr = builder.Configuration.GetValue<string>("ConnectionString");
+string connStr = builder.Configuration["ConnectionString"];
 builder.Services.AddIdentityApiEndpoints<IdentityUser>(options =>
 {
     options.User.RequireUniqueEmail = true;
@@ -35,6 +36,9 @@ builder.Services.AddIdentityApiEndpoints<IdentityUser>(options =>
     {
         options.ConnectionString = connStr;
     });
+builder.Services.AddScoped<AppointmentRepository>(provider =>
+    new AppointmentRepository(connStr));
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
